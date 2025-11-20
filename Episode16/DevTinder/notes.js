@@ -9,3 +9,9 @@
 // but for major change , our prject was on express version x.y.z .if the express changes to x+1.y.z
 // then the project is not backward compatible , might break the application if we update to newer version
 //if we put carot it will automatically update patch version whenever we do npm install but in packgae-lock json will conatina 14.92.2 only
+//order of the routes matter alot
+// explianed about postman - you already know this stuff
+
+//routing handlers : a+ --> a/aa/aaa/etc , a? --> a is optinal , a*--> anything after a
+//req.params --> fetches all the params from the url
+//req.query() --> gives all the info from req body

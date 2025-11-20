@@ -1,15 +1,23 @@
 const express = require("express");
 const app = express();
-//this is known as request handler
-app.get("/", (req, res) => {
-  res.send("Hello from the server");
+
+app.post("/user", (req, res) => {
+  //posting data to DB
+  res.send("Data saved to dabased");
 });
-app.get("/hello", (req, res) => {
-  res.send("Hello Hello Hello");
+app.get("/user/test", (req, res) => {
+  res.send("Data sent successfully");
 });
-app.get("/test", (req, res) => {
-  res.send("Hello from testing ");
-});
+//this is known as request handler - this use will handle all the http methods
+// app.use("/", (req, res) => {
+//   res.send("Hello from the server");
+// });
+// app.use("/hello", (req, res) => {
+//   res.send("Hello Hello Hello");
+// });
+// app.use("/test", (req, res) => {
+//   res.send("Hello from testing ");
+// });
 app.listen(3000, () => {
   console.log("Server is successfully running");
 });
