@@ -10,7 +10,6 @@ app.post("/signUp", async (req, res) => {
   //   firstName: "srujan",
   //   lastName: "Lolam",
   //   email: "srujan@gmai.com",
-  //   password: "Srujan@123",
   // };
   //creating a new instance of the model
   const user = new User(user1);
