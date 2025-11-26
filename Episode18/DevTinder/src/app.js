@@ -5,6 +5,10 @@ const User = require("./model/user");
 const { validateSignUpData } = require("./utils/validation");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
+const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
+const { userAuth } = require("./middlewares/auth");
+app.use(cookieParser());
 //this is a middleware given by express that takes req from all the routes in app and converts to js object
 app.use(express.json());
 app.post("/signUp", async (req, res) => {
@@ -44,10 +48,20 @@ app.post("/login", async (req, res) => {
       throw new Error("Invalid Credentials");
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
+    if (isPasswordValid) {
+      //this is completely fyn , but not best practise , instead , write a function at the schema level
+      //as this is applicable to all the users and jwt is unique to every user-commenting
+      // const token = await jwt.sign({ _id: user._id }, "devTinder@123", {
+      //   expiresIn: "1d",
+      // });
+      const token = await user.getJWT();
+      res.cookie("token", token, {
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      });
+      res.status(200).send("User Logged in Successfully");
+    } else {
       throw new Error("Invalid credentials");
     }
-    res.status(200).send("User Logged in Successfully");
   } catch (err) {
     res.status(400).send("Invalid credentials:" + err.message);
   }
@@ -115,6 +129,30 @@ app.patch("/userUpdate/:userId", async (req, res) => {
   } catch (err) {
     res.status(400).send("Something went wrong:" + err);
   }
+});
+
+app.get("/profile", userAuth, async (req, res) => {
+  try {
+    //as we are adding the middleware ,we need not check for the token here-commenting
+    // const cookies = req.cookies;
+    // const { token } = cookies;
+    // if (!token) {
+    //   throw new Error("Invalid token");
+    // }
+    // const decodeMessage = await jwt.verify(token, process.env.JWT_SECRET_KEY);
+    // console.log(decodeMessage);
+    // const { _id } = decodeMessage;
+    // const user = await User.findById(_id);
+    const user = req.user;
+    res.send(user);
+  } catch (err) {
+    res.status(400).send("Error:" + err.message);
+  }
+});
+
+app.post("/sendConnectionRequest", userAuth, (req, res) => {
+  const user = req.user;
+  res.send(user.firstName + "  is " + "sending the request");
 });
 
 connectDb()

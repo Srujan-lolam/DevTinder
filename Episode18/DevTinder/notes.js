@@ -11,3 +11,13 @@
 // the actual  api
 
 //Episode22 - Encrypting passwords
+// explained about bcrypt- nothing much -refer code
+
+//EPisode 23
+// whenever user makes a request(login) , it will go to server via tcp/ip and the response will be sent and connection
+// will be closed -remeber in the first season we talked about it.
+// whenever the user logins for the first time , the server will send a JWT token(attached in the cookie) along with the respnose
+// for a valid authentication . when the user tries to naviagte to other pages , then the server uses
+// this jwt token(received from the request ) to authorize instead of making call again-jwt will be stored in cookies in browser
+//refer to the diagram from doc- jwt token will be different to each user , when we try to access
+// profile , the server validated the token first(if exists) and returns the profile of logged in user
