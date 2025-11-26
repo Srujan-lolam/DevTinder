@@ -17,7 +17,7 @@ app.post("/signUp", async (req, res) => {
     await user.save();
     res.send("User added successfully ");
   } catch (err) {
-    res.status(400).send("error in saving the data");
+    res.status(400).send("error in saving the data : " + err);
   }
 });
 
@@ -42,6 +42,46 @@ app.get("/feed", async (req, res) => {
     res.status(200).send(user);
   } catch (err) {
     res.status(400).send("Something went wrong");
+  }
+});
+
+//delete api
+app.delete("/deleteUser", async (req, res) => {
+  const userId = req.body.email;
+  try {
+    // both are same - ((in terms of passing arguments , not the functions))
+    // const user = await User.findByIdAndDelete({ _id : userId });
+    //if we pass the field that is not in the schema , it won't throw error but will not work as expected
+    const user = await User.findOneAndDelete({ email: userId });
+    res.status(200).send("User deleted successfully");
+  } catch (err) {
+    res.status(400).send("Something went wrong");
+  }
+});
+
+//updating the user - put updates all the filds -changes the given ones , if not given makes themnull
+//patch only updates whatever you want to update
+app.patch("/userUpdate/:userId", async (req, res) => {
+  const userId = req.params?.userId;
+  const data = req.body;
+  try {
+    const ALLOWED_UPDATES = ["photourl", "gender", "age", "skills"];
+    const isAllowed = Object.keys(data).every((k) => {
+      ALLOWED_UPDATES.includes(k);
+    });
+    if (!isAllowed) {
+      throw new Error("Update not allowed");
+    }
+    if (data.skills.length > 10) {
+      throw new Error("Skills length must nt exceed 10");
+    }
+    await User.findByIdAndUpdate(userId, data, {
+      returnDocument: true,
+      runValidators: true,
+    });
+    res.status(200).send("User updated successfully");
+  } catch (err) {
+    res.status(400).send("Something went wrong:" + err);
   }
 });
 
