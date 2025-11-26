@@ -6,3 +6,8 @@
 //always try to write the code using error handlers(try catch)
 //if we try to pass JSON object in the req body , the js will not be able to understand it , so
 //we use express.json() midleware or sent the data in jb object only
+//explained schema validations and api level level validations - refer code . nothing to remeber much
+// schema validation applies at the db level (user.js file) , api level validations apply before calling
+// the actual  api
+
+//Episode22 - Encrypting passwords
