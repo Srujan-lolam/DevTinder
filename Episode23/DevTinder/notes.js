@@ -22,3 +22,6 @@
 //  -POST /user/connections
 //  -POST /user/requests
 //  -POST /user/feed
+
+//added express routes so that when we scale our appliation , code will be still maintanable,scalable etc
+//created auth and profile apis -nothing much theoritically , explore the refactored code

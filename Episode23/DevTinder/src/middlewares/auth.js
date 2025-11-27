@@ -8,6 +8,7 @@ const userAuth = async (req, res, next) => {
       throw new Error("token invalid");
     }
     const decodeToken = await jwt.verify(token, process.env.JWT_SECRET_KEY);
+    console.log(decodeToken);
     const { _id } = decodeToken;
     const user = await User.findById(_id);
     if (!user) {
