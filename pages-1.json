@@ -1,0 +1,20 @@
+{
+  "profilePage": {
+    "filePath": "src/pages/profile/subpages/ProfilePage/profilePage.vue",
+    "fileName": "profilePage",
+    "elName": "profile-page",
+    "description": "User profile page with personal info, address details, and preferences"
+  },
+  "CartPage": {
+    "filePath": "src/pages/cart/subpages/CartPage/CartPage.vue",
+    "fileName": "CartPage",
+    "elName": "cart-page",
+    "description": "Shopping cart with items table, order summary, and checkout button"
+  },
+  "CheckoutPage": {
+    "filePath": "src/pages/checkout/subpages/CheckoutPage.vue",
+    "fileName": "CheckoutPage",
+    "elName": "checkout-page",
+    "description": "Complete checkout form with shipping info, payment details, and order summary"
+  }
+}

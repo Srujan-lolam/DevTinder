@@ -1,0 +1,26 @@
+{
+  "ResultPage": {
+    "filePath": "src/pages/checkout/subpages/ResultPage.vue",
+    "fileName": "ResultPage",
+    "elName": "result-page",
+    "description": "Order result/confirmation page showing success, failure, or pending states"
+  },
+  "CreateSession": {
+    "filePath": "src/components/CreateSession.vue",
+    "fileName": "CreateSession",
+    "elName": "create-session",
+    "description": "Modal component for creating new sessions with form controls"
+  },
+  "GuestWishlistPage": {
+    "filePath": "src/pages/guestWishlist/subpages/GuestWishlistPage.vue",
+    "fileName": "GuestWishlistPage",
+    "elName": "guest-wishlist-page",
+    "description": "Wishlist page with search, sort, and item management features"
+  },
+  "LoginPage": {
+    "filePath": "src/pages/login/subpages/LoginPage.vue",
+    "fileName": "loginPage",
+    "elName": "login-page",
+    "description": "Complete login page with email/password auth and social login"
+  }
+}
