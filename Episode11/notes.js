@@ -1,8 +1,8 @@
 //Explained about what is a server , scaling , can we our laptop as server etc - you know this stuff
-//server can be spojen in 2 ways - hardware and software , hardware server generally means EC2 instance
+//server can be spoken in 2 ways - hardware and software , hardware server generally means EC2 instance
 // software server refers to application - like your node application
 // protocol - set of defined rules for communicating between servers(computers) over the internet
-// client connets to server via a scoket which keeps opening and closing  via TCP/Ip
+// client connets to server via a socket which keeps opening and closing  via TCP/Ip
 //we request via https/http which means http is a protocol that we are using to comunicatw with the
 // required server - data will be returned in small chunks called packets ,not whole at once-but we dont
 // observe as it happens very fast

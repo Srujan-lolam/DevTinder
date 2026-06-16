@@ -6,7 +6,7 @@
 //javascript does have the capablity of executing the asynchronous code , it does not have the
 //concept os timer , connecting to db etc , all these asynchronous tasks will be taken caare by
 //libUv library .
-//js is a high level langauge and os cannot uderstand it , os needs level level language which is given by libUv written in c
+//js is a high level langauge and os cannot uderstand it , os needs low level language which is given by libUv written in c
 //whenever there is an asynchrnous task like making api call , reading from a file , connecting to db
 //etc , then javscript engine just takes that task and gives to libUv , and js engine continues executing
 //the other parts , libUv handles all the masynchronous tasks parallely . when it finishes , it

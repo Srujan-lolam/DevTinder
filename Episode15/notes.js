@@ -20,7 +20,7 @@
 //connectionRequest --> from userId , to userId , status(pending , rejected , approved ,ignore(not rejecting , not approving))
 // 2)
 // Rest APis : REST suggests to create an object of the data requested by the client and send
-//  the values of the object in response to the user. different types include Get apis , put apis
+// the values of the object in response to the user. different types include Get apis , put apis
 // post apis, patch apis
 // i) /signUp - Post
 // ii) /login - Post

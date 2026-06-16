@@ -1,4 +1,4 @@
-// modules are individual files that protect their variables and functions from begin leaked to other
+// modules are individual files that protect their variables and functions from being leaked to other
 // modules .in order to use variables or functions we need to export explicitly
 //there are two types of module export methods in node . common js modules and es module exports
 // (cjs and mjs) . cjs is the default one .we use export and require for this . for mjs - we need
